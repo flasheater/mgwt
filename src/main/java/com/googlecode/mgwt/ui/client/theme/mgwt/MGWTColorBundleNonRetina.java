@@ -36,60 +36,77 @@ import com.googlecode.mgwt.ui.client.theme.base.TabBarCss;
 
 public interface MGWTColorBundleNonRetina extends MGWTClientBundleBaseThemeIPhone {
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/progressbar.css", "css/progressbar.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/progressbar.css", "css/progressbar.css" })
 	ProgressBarCss getProgressBarCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/progressindicator.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/progressindicator.css" })
 	ProgressIndicatorCss getProgressIndicatorCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/header.css", "css/header.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/header.css", "css/header.css" })
 	HeaderCss getHeaderCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/slider.css", "css/slider.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/slider.css", "css/slider.css" })
 	SliderCss getSliderCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/list.css", "css/list.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/list.css", "css/list.css" })
 	ListCss getListCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/searchbox.css", "css/searchbox.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/searchbox.css", "css/searchbox.css" })
 	MSearchBoxCss getSearchBoxCss();
 
 	// TODO
 	// still needs styling
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/checkbox.css", "css/checkbox.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/checkbox.css", "css/checkbox.css" })
 	CheckBoxCss getCheckBoxCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/buttons.css", "css/buttons.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/buttons.css", "css/buttons.css" })
 	ButtonCss getButtonCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/scrollpanel.css", "css/scrollpanel.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/scrollpanel.css", "css/scrollpanel.css" })
 	ScrollPanelCss getScrollPanelCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/buttonbar.css", "css/buttonbar.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/buttonbar.css", "css/buttonbar.css" })
 	ButtonBarCss getButtonBarCss();
 
 	// TODO still needs styling...
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/dialog.css", "css/dialog.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/dialog.css", "css/dialog.css" })
 	DialogCss getDialogCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/main.css", "css/main.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/main.css", "css/main.css" })
 	MainCss getMainCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/input.css", "css/input.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/input.css", "css/input.css" })
 	InputCss getInputCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/panel.css", "css/panel.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/panel.css", "css/panel.css" })
 	PanelCss getPanelCss();
 
-	@Source("com/googlecode/mgwt/ui/client/theme/base/css/layout.css")
+	@Override
+  @Source("com/googlecode/mgwt/ui/client/theme/base/css/layout.css")
 	LayoutCss getLayoutCss();
 
 	// TODO
 	// still needs styling..
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/pulltorefresh.css", "css/pulltorefresh.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/pulltorefresh.css", "css/pulltorefresh.css" })
 	PullToRefreshCss getPullToRefreshCss();
 
-	@Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/tabbar.css", "css/tabbar.css" })
+	@Override
+  @Source({ "color.css", "com/googlecode/mgwt/ui/client/theme/base/css/tabbar.css", "css/tabbar.css" })
 	TabBarCss getTabBarCss();
 
 	// TODO buttons for tabbar still need styling...

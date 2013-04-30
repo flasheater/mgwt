@@ -31,7 +31,8 @@ public final class JsTouch extends JavaScriptObject implements Touch {
 	 * 
 	 * @return the current x position of the touch
 	 */
-	public final native int getPageX() /*-{
+	@Override
+  public final native int getPageX() /*-{
 		return this.pageX;
 	}-*/;
 
@@ -40,7 +41,8 @@ public final class JsTouch extends JavaScriptObject implements Touch {
 	 * 
 	 * @return the current y position of the touch
 	 */
-	public final native int getPageY() /*-{
+	@Override
+  public final native int getPageY() /*-{
 		return this.pageY;
 	}-*/;
 

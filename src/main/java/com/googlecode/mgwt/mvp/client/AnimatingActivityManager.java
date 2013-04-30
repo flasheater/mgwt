@@ -58,7 +58,8 @@ public class AnimatingActivityManager implements PlaceChangeEvent.Handler, Place
 			this.activity = activity;
 		}
 
-		public void setWidget(IsWidget view) {
+		@Override
+    public void setWidget(IsWidget view) {
 			if (this.activity == AnimatingActivityManager.this.currentActivity) {
 				startingNext = false;
 				showWidget(view, currentIsFirst);
@@ -133,7 +134,8 @@ public class AnimatingActivityManager implements PlaceChangeEvent.Handler, Place
 	 * 
 	 * @see com.google.gwt.place.shared.PlaceChangeEvent.Handler#onPlaceChange(PlaceChangeEvent)
 	 */
-	public void onPlaceChange(PlaceChangeEvent event) {
+	@Override
+  public void onPlaceChange(PlaceChangeEvent event) {
 		if (ignorePlaceChange) {
 			//remember the place change event to be executed after the current one is done
 			placeChangeStack.add(event);
@@ -312,7 +314,8 @@ public class AnimatingActivityManager implements PlaceChangeEvent.Handler, Place
 	 * 
 	 * @see com.google.gwt.place.shared.PlaceChangeRequestEvent.Handler#onPlaceChangeRequest(PlaceChangeRequestEvent)
 	 */
-	public void onPlaceChangeRequest(PlaceChangeRequestEvent event) {
+	@Override
+  public void onPlaceChangeRequest(PlaceChangeRequestEvent event) {
 		if (!currentActivity.equals(NULL_ACTIVITY)) {
 			event.setWarning(currentActivity.mayStop());
 		}
@@ -368,7 +371,8 @@ public class AnimatingActivityManager implements PlaceChangeEvent.Handler, Place
 			final com.google.web.bindery.event.shared.HandlerRegistration placeRequestReg = eventBus.addHandler(PlaceChangeRequestEvent.TYPE, this);
 
 			this.handlerRegistration = new HandlerRegistration() {
-				public void removeHandler() {
+				@Override
+        public void removeHandler() {
 					placeReg.removeHandler();
 					placeRequestReg.removeHandler();
 				}

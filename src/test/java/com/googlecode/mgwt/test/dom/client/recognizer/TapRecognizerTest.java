@@ -33,7 +33,8 @@ public class TapRecognizerTest {
 	public void before() {
 		mockHasHandlers = new MockHasHandlers();
 		tapRecognizer = new TapRecognizer(mockHasHandlers, distance) {
-			protected com.googlecode.mgwt.dom.client.recognizer.EventPropagator getEventPropagator() {
+			@Override
+      protected com.googlecode.mgwt.dom.client.recognizer.EventPropagator getEventPropagator() {
 				return new EventPropagatorStandardImpl();
 
 			}

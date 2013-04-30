@@ -33,7 +33,8 @@ public interface HeaderCss extends ButtonBaseCss {
 	@ClassName("mgwt-HeaderButton")
 	public String headerButton();
 
-	@ClassName("mgwt-HeaderButton-active")
+	@Override
+  @ClassName("mgwt-HeaderButton-active")
 	public String active();
 
 	@ClassName("mgwt-HeaderButton-back")

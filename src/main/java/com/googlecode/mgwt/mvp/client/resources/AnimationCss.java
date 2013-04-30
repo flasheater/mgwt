@@ -51,49 +51,56 @@ public interface AnimationCss extends CssResource, AnimationNames {
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String fade();
+	@Override
+  public String fade();
 
 	/**
 	 * <p>pop</p>
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String pop();
+	@Override
+  public String pop();
 
 	/**
 	 * <p>swap</p>
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String swap();
+	@Override
+  public String swap();
 
 	/**
 	 * <p>slide</p>
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String slide();
+	@Override
+  public String slide();
 
 	/**
 	 * <p>slideup</p>
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String slideup();
+	@Override
+  public String slideup();
 
 	/**
 	 * <p>flip</p>
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String flip();
+	@Override
+  public String flip();
 
 	/**
 	 * <p>dissolve</p>
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String dissolve();
+	@Override
+  public String dissolve();
 
 	/**
 	 * <p>display</p>

@@ -120,6 +120,7 @@ public class OptionsDialog implements HasWidgets, Dialog {
    * show
    * </p>
    */
+  @Override
   public void show() {
     slideUpPanel.show();
   }

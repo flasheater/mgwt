@@ -28,15 +28,18 @@ import com.google.web.bindery.event.shared.SimpleEventBus;
 public class HTML5HistorianLegacyImpl implements Html5Historian, ValueChangeHandler<String> {
 
 	public static class DefaultHistorian implements Historian {
-		public com.google.gwt.event.shared.HandlerRegistration addValueChangeHandler(ValueChangeHandler<String> valueChangeHandler) {
+		@Override
+    public com.google.gwt.event.shared.HandlerRegistration addValueChangeHandler(ValueChangeHandler<String> valueChangeHandler) {
 			return History.addValueChangeHandler(valueChangeHandler);
 		}
 
-		public String getToken() {
+		@Override
+    public String getToken() {
 			return History.getToken();
 		}
 
-		public void newItem(String token, boolean issueEvent) {
+		@Override
+    public void newItem(String token, boolean issueEvent) {
 			History.newItem(token, issueEvent);
 		}
 	}

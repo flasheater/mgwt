@@ -38,6 +38,7 @@ public class TestMutliTapRecognizer {
       super(hasHandlers, i);
     }
 
+    @Override
     public void setTimeProvider(TimeProvider timeProvider) {
       super.setTimeProvider(timeProvider);
     }

@@ -105,7 +105,8 @@ public abstract class PullArrowBase extends Composite implements PullArrowWidget
 		CssUtil.rotate(icon.getElement(), degree);
 	}
 
-	public void showError() {
+	@Override
+  public void showError() {
 		removeStyles();
 		icon.addStyleName(css.error());
 
@@ -156,7 +157,8 @@ public abstract class PullArrowBase extends Composite implements PullArrowWidget
 	 * showArrow
 	 * </p>
 	 */
-	public void showArrow() {
+	@Override
+  public void showArrow() {
 		removeStyles();
 		icon.addStyleName(css.arrow());
 
@@ -166,7 +168,8 @@ public abstract class PullArrowBase extends Composite implements PullArrowWidget
 		indicator.setVisible(false);
 	}
 
-	public void showLoadingIndicator() {
+	@Override
+  public void showLoadingIndicator() {
 		icon.getElement().setAttribute("style", "");
 		showSpinner();
 

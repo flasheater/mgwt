@@ -43,7 +43,8 @@ public interface TabBarCss extends ButtonBaseCss {
 	@ClassName("mgwt-TabBar-Button-selected")
 	public String selected();
 
-	@ClassName("mgwt-TabBar-Button-active")
+	@Override
+  @ClassName("mgwt-TabBar-Button-active")
 	public String active();
 
 	@ClassName("mgwt-TabBar-Button-icon")

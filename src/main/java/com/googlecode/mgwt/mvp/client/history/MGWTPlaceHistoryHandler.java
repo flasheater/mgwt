@@ -97,7 +97,8 @@ public class MGWTPlaceHistoryHandler {
 		final HandlerRegistration handlerRegistration = historyObserver.bind(eventBus, defaultHistoryHandler);
 
 		return new HandlerRegistration() {
-			public void removeHandler() {
+			@Override
+      public void removeHandler() {
 
 				bind.removeHandler();
 				handlerRegistration.removeHandler();
@@ -125,7 +126,8 @@ public class MGWTPlaceHistoryHandler {
 		});
 
 		return new HandlerRegistration() {
-			public void removeHandler() {
+			@Override
+      public void removeHandler() {
 				MGWTPlaceHistoryHandler.this.defaultPlace = Place.NOWHERE;
 				MGWTPlaceHistoryHandler.this.placeController = null;
 				popHandler.removeHandler();

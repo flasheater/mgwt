@@ -284,6 +284,7 @@ public class CellList<T> extends Composite implements HasCellSelectedHandler {
    * (com.googlecode.mgwt.ui.client.widget.celllist.CellSelectedHandler)
    */
   /** {@inheritDoc} */
+  @Override
   public HandlerRegistration addCellSelectedHandler(CellSelectedHandler cellSelectedHandler) {
     return addHandler(cellSelectedHandler, CellSelectedEvent.getType());
   }

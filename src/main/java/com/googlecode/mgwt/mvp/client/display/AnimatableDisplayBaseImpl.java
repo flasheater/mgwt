@@ -65,6 +65,7 @@ public abstract class AnimatableDisplayBaseImpl implements AnimatableDisplay {
     css.ensureInjected();
 
     main = new FlowPanel() {
+      @Override
       protected void onDetach() {
         super.onDetach();
         onDeattach();

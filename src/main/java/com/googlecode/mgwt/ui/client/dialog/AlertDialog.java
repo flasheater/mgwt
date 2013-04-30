@@ -145,6 +145,7 @@ public class AlertDialog implements HasText, HasTitleText, HasTapHandlers, Dialo
    * show
    * </p>
    */
+  @Override
   public void show() {
     popinDialog.center();
   }

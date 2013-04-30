@@ -259,6 +259,7 @@ public class PullPanel extends Composite implements HasWidgets, HasRefresh {
     scrollPanel.refresh();
   }
 
+  @Override
   public void refresh() {
     scrollPanel.refresh();
 

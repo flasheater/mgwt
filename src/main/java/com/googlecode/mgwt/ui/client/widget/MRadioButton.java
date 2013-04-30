@@ -65,7 +65,7 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    * @param name the name of the group
    */
   @UiConstructor
-  public MRadioButton(String name) {
+  public MRadioButton(final String name) {
     this(MGWTStyle.getTheme().getMGWTClientBundle().getInputCss(), name);
   }
 
@@ -75,7 +75,7 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    * @param css the css to use
    * @param name the group name to use
    */
-  public MRadioButton(InputCss css, String name) {
+  public MRadioButton(final InputCss css, final String name) {
     this.css = css;
     css.ensureInjected();
     setElement(DOM.createSpan());
@@ -100,19 +100,25 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
       private int last_y;
 
       @Override
-      public void onTouchCanceled(TouchCancelEvent event) {
+      public void onTouchCanceled(final TouchCancelEvent event) {
         if (ignore)
+        {
           return;
+        }
 
       }
 
       @Override
-      public void onTouchEnd(TouchEndEvent event) {
+      public void onTouchEnd(final TouchEndEvent event) {
         if (!isEnabled())
+        {
           return;
+        }
 
         if (ignore)
+        {
           return;
+        }
 
         if (Math.abs(last_x - start_x) < Tap.RADIUS && Math.abs(last_y - start_y) < Tap.RADIUS) {
           if (labelOrContainer) {
@@ -124,37 +130,45 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
       }
 
       @Override
-      public void onTouchMove(TouchMoveEvent event) {
+      public void onTouchMove(final TouchMoveEvent event) {
         if (!isEnabled())
+        {
           return;
+        }
 
         if (ignore)
+        {
           return;
-        Touch touch = event.getTouches().get(0);
+        }
+        final Touch touch = event.getTouches().get(0);
         last_x = touch.getPageX();
         last_y = touch.getPageY();
 
       }
 
       @Override
-      public void onTouchStart(TouchStartEvent event) {
+      public void onTouchStart(final TouchStartEvent event) {
         if (!isEnabled())
+        {
           return;
+        }
         ignore = inputRadio.isChecked();
 
         if (ignore)
+        {
           return;
+        }
 
-        Touch touch = event.getTouches().get(0);
+        final Touch touch = event.getTouches().get(0);
         start_x = touch.getPageX();
         start_y = touch.getPageY();
         last_x = start_x;
         last_y = start_y;
 
-        EventTarget eventTarget = event.getNativeEvent().getEventTarget();
+        final EventTarget eventTarget = event.getNativeEvent().getEventTarget();
         labelOrContainer = true;
         if (com.google.gwt.dom.client.Element.is(eventTarget)) {
-          com.google.gwt.dom.client.Element el = com.google.gwt.dom.client.Element.as(eventTarget);
+          final com.google.gwt.dom.client.Element el = com.google.gwt.dom.client.Element.as(eventTarget);
 
           if (inputRadio.isOrHasChild(el)) {
             labelOrContainer = false;
@@ -167,7 +181,7 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
     addHandler(new ChangeHandler() {
 
       @Override
-      public void onChange(ChangeEvent event) {
+      public void onChange(final ChangeEvent event) {
         ValueChangeEvent.fire(MRadioButton.this, true);
 
       }
@@ -192,7 +206,7 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    */
   /** {@inheritDoc} */
   @Override
-  public void setText(String text) {
+  public void setText(final String text) {
     labelElement.setInnerText(text);
 
   }
@@ -206,7 +220,7 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    */
   /** {@inheritDoc} */
   @Override
-  public HandlerRegistration addValueChangeHandler(ValueChangeHandler<Boolean> handler) {
+  public HandlerRegistration addValueChangeHandler(final ValueChangeHandler<Boolean> handler) {
     return addHandler(handler, ValueChangeEvent.getType());
   }
 
@@ -242,7 +256,7 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    */
   /** {@inheritDoc} */
   @Override
-  public void setWordWrap(boolean wrap) {
+  public void setWordWrap(final boolean wrap) {
     getElement().getStyle().setProperty("whiteSpace", wrap ? "normal" : "nowrap");
 
   }
@@ -269,7 +283,7 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    */
   /** {@inheritDoc} */
   @Override
-  public void setValue(Boolean value) {
+  public void setValue(final Boolean value) {
     setValue(value, false);
 
   }
@@ -281,19 +295,21 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    */
   /** {@inheritDoc} */
   @Override
-  public void setValue(Boolean value, boolean fireEvents) {
-    if (value == null) {
-      value = Boolean.FALSE;
+  public void setValue(final Boolean value, final boolean fireEvents) {
+    Boolean boolVal = value;
+    if ( boolVal == null )
+    {
+      boolVal = Boolean.FALSE;
     }
 
-    Boolean oldValue = getValue();
-    inputRadio.setChecked(value);
-    inputRadio.setDefaultChecked(value);
+    final Boolean oldValue = getValue();
+    inputRadio.setChecked( boolVal );
+    inputRadio.setDefaultChecked( boolVal );
     if (value.equals(oldValue)) {
       return;
     }
     if (fireEvents) {
-      ValueChangeEvent.fire(this, value);
+      ValueChangeEvent.fire( this, boolVal );
     }
 
   }
@@ -305,21 +321,21 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    */
   /** {@inheritDoc} */
   @Override
-  public void setName(String name) {
+  public void setName(final String name) {
     replaceInputElement(DOM.createInputRadio(name));
 
   }
 
-  private void replaceInputElement(com.google.gwt.user.client.Element elem) {
-    InputElement newInputElem = InputElement.as(elem);
+  private void replaceInputElement(final com.google.gwt.user.client.Element elem) {
+    final InputElement newInputElem = InputElement.as(elem);
     // Collect information we need to set
 
-    boolean checked = getValue();
-    boolean enabled = isEnabled();
-    String formValue = getFormValue();
-    String uid = inputRadio.getId();
-    String accessKey = inputRadio.getAccessKey();
-    int sunkEvents = Event.getEventsSunk(inputRadio);
+    final boolean checked = getValue();
+    final boolean enabled = isEnabled();
+    final String formValue = getFormValue();
+    final String uid = inputRadio.getId();
+    final String accessKey = inputRadio.getAccessKey();
+    final int sunkEvents = Event.getEventsSunk(inputRadio);
 
     // Clear out the old input element
     setEventListener(asOld(inputRadio), null);
@@ -354,7 +370,7 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    * 
    * @param formValue the formvalue that would be sent to a server
    */
-  public void setFormValue(String formValue) {
+  public void setFormValue(final String formValue) {
     inputRadio.setAttribute("value", formValue);
 
   }
@@ -388,7 +404,7 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
    */
   /** {@inheritDoc} */
   @Override
-  public void setEnabled(boolean enabled) {
+  public void setEnabled(final boolean enabled) {
     inputRadio.setDisabled(!enabled);
     if (enabled) {
       removeStyleDependentName(css.disabled());
@@ -407,12 +423,12 @@ public class MRadioButton extends TouchWidget implements HasText, HasEnabled, Ha
     return inputRadio.getValue();
   }
 
-  private Element asOld(com.google.gwt.dom.client.Element elem) {
-    Element oldSchool = elem.cast();
+  private Element asOld(final com.google.gwt.dom.client.Element elem) {
+    final Element oldSchool = elem.cast();
     return oldSchool;
   }
 
-  private void setEventListener(com.google.gwt.dom.client.Element e, EventListener listener) {
+  private void setEventListener(final com.google.gwt.dom.client.Element e, final EventListener listener) {
     DOM.setEventListener(asOld(e), listener);
   }
 

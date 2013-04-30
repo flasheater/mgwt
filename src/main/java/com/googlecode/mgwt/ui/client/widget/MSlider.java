@@ -60,10 +60,10 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
 
   private static class SliderWidget extends TouchWidget {
 
-    private Element slider;
-    private Element bar;
+    private final Element slider;
+    private final Element bar;
 
-    public SliderWidget(SliderCss css) {
+    public SliderWidget(final SliderCss css) {
       setElement(DOM.createDiv());
       bar = DOM.createDiv();
       bar.setClassName(css.bar());
@@ -76,7 +76,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
 
     }
 
-    public void setPos(int x) {
+    public void setPos(final int x) {
       CssUtil.translate(slider, x, 0);
     }
   }
@@ -84,7 +84,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
   private class SliderTouchHandler implements TouchHandler {
 
     @Override
-    public void onTouchStart(TouchStartEvent event) {
+    public void onTouchStart(final TouchStartEvent event) {
       setValueContrained(event.getTouches().get(0).getPageX());
       if (MGWT.getOsDetection().isDesktop()) {
         DOM.setCapture(getElement());
@@ -94,7 +94,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
     }
 
     @Override
-    public void onTouchMove(TouchMoveEvent event) {
+    public void onTouchMove(final TouchMoveEvent event) {
 
       setValueContrained(event.getTouches().get(0).getPageX());
       event.stopPropagation();
@@ -102,7 +102,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
     }
 
     @Override
-    public void onTouchEnd(TouchEndEvent event) {
+    public void onTouchEnd(final TouchEndEvent event) {
       if (MGWT.getOsDetection().isDesktop()) {
         DOM.releaseCapture(getElement());
       }
@@ -111,7 +111,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
     }
 
     @Override
-    public void onTouchCanceled(TouchCancelEvent event) {
+    public void onTouchCanceled(final TouchCancelEvent event) {
       if (MGWT.getOsDetection().isDesktop()) {
         DOM.releaseCapture(getElement());
       }
@@ -120,7 +120,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
   }
 
   private int value;
-  private SliderWidget sliderWidget;
+  private final SliderWidget sliderWidget;
   private int max;
 
   /**
@@ -135,7 +135,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
    * 
    * @param css the css to use
    */
-  public MSlider(SliderCss css) {
+  public MSlider(final SliderCss css) {
     css.ensureInjected();
     sliderWidget = new SliderWidget(css);
     initWidget(sliderWidget);
@@ -156,7 +156,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
    */
   /** {@inheritDoc} */
   @Override
-  public HandlerRegistration addValueChangeHandler(ValueChangeHandler<Integer> handler) {
+  public HandlerRegistration addValueChangeHandler(final ValueChangeHandler<Integer> handler) {
     return addHandler(handler, ValueChangeEvent.getType());
   }
 
@@ -165,7 +165,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
    * 
    * @param max the maximum to use
    */
-  public void setMax(int max) {
+  public void setMax(final int max) {
     if (max <= 0) {
       throw new IllegalArgumentException("max > 0");
     }
@@ -199,7 +199,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
    */
   /** {@inheritDoc} */
   @Override
-  public void setValue(Integer value) {
+  public void setValue(final Integer value) {
     setValue(value, true);
 
   }
@@ -231,12 +231,12 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
    */
   /** {@inheritDoc} */
   @Override
-  public void setValue(Integer value, boolean fireEvents) {
+  public void setValue(final Integer value, final boolean fireEvents) {
     setValue(value, fireEvents, true);
 
   }
 
-  protected void setValue(Integer value, boolean fireEvents, boolean updateSlider) {
+  protected void setValue(final Integer value, final boolean fireEvents, final boolean updateSlider) {
     if (value == null) {
       throw new IllegalArgumentException("value can not be null");
     }
@@ -249,7 +249,7 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
       throw new IllegalArgumentException("value >= max");
     }
 
-    int oldValue = this.value;
+    final int oldValue = this.value;
     this.value = value;
     if (updateSlider) {
       setSliderPos(value);
@@ -261,35 +261,37 @@ public class MSlider extends Composite implements HasValue<Integer>, LeafValueEd
 
   }
 
-  private void setSliderPos(int value) {
+  private void setSliderPos(final int value) {
 
     if (!isAttached()) {
       return;
     }
 
-    int width = sliderWidget.getOffsetWidth();
-    int sliderPos = value * width / max;
+    final int width = sliderWidget.getOffsetWidth();
+    final int sliderPos = value * width / max;
     sliderWidget.setPos(sliderPos);
 
   }
 
-  private void setValueContrained(int x) {
-    x = x - MSlider.this.getAbsoluteLeft();
-    int width = sliderWidget.getOffsetWidth();
+  private void setValueContrained(final int x) {
+    int x2 = x - MSlider.this.getAbsoluteLeft();
+    final int width = sliderWidget.getOffsetWidth();
 
-    if (x < 0) {
-      x = 0;
+    if ( x2 < 0 )
+    {
+      x2 = 0;
     }
 
-    if (x > (width - 1)) {
-      x = width - 1;
+    if ( x2 > width - 1 )
+    {
+      x2 = width - 1;
     }
 
     // scale it to max
-    int componentValue = x * max / width;
+    final int componentValue = x2 * max / width;
     setValue(componentValue, true, false);
 
-    sliderWidget.setPos(x);
+    sliderWidget.setPos( x2 );
   }
 
 }

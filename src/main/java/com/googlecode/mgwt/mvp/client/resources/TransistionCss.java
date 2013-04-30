@@ -80,6 +80,7 @@ public interface TransistionCss extends CssResource, AnimationNames {
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */
-	String slide();
+	@Override
+  String slide();
 
 }

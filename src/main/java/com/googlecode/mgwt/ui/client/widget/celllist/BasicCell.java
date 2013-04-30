@@ -39,7 +39,7 @@ public abstract class BasicCell<T> implements Cell<T> {
   }
 
   @Override
-  public void render(SafeHtmlBuilder safeHtmlBuilder, final T model) {
+  public void render(final SafeHtmlBuilder safeHtmlBuilder, final T model) {
     safeHtmlBuilder.append(TEMPLATE.content(styleName, getDisplayString(model)));
 
   }
@@ -47,13 +47,13 @@ public abstract class BasicCell<T> implements Cell<T> {
   public abstract String getDisplayString(T model);
 
   @Override
-  public boolean canBeSelected(T model) {
+  public boolean canBeSelected(final T model) {
     return false;
   }
 
-  public void setStylename(String name) {
+  public void setStylename(final String name) {
     if (name == null) {
-      name = "";
+      styleName = "";
     }
     styleName = name;
   }

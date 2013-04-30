@@ -38,7 +38,8 @@ public class MDoubleBox extends MValueBoxBase<Double> {
 			return new HandlerManager(source);
 		}
 
-		public void setSource(Object source) {
+		@Override
+    public void setSource(Object source) {
 			this.source = source;
 		}
 	}

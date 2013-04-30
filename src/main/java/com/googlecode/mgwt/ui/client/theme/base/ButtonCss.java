@@ -30,7 +30,8 @@ public interface ButtonCss extends ButtonBaseCss {
 	@ClassName("mgwt-Button")
 	public String button();
 
-	@ClassName("mgwt-Button-active")
+	@Override
+  @ClassName("mgwt-Button-active")
 	public String active();
 
 	@ClassName("mgwt-Button-small")

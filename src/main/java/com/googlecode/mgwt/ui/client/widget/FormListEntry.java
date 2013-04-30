@@ -121,7 +121,8 @@ public class FormListEntry extends Composite implements HasWidgets, HasHTML {
 
 	// only for uibinder
 
-	public void add(Widget w) {
+	@Override
+  public void add(Widget w) {
 		widgetContainer.setWidget(w);
 	}
 

@@ -174,6 +174,7 @@ public class ConfirmDialog implements HasText, HasTitleText, Dialog {
    * show
    * </p>
    */
+  @Override
   public void show() {
     popinDialog.center();
   }

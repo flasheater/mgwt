@@ -222,7 +222,8 @@ public abstract class AnimatableDialogBase implements HasWidgets, HasTouchHandle
 	 * @see com.googlecode.mgwt.dom.client.event.touch.simple.HasSimpleTouchHandler#addSimpleTouchHandler(com.googlecode.mgwt.dom.client.event.touch.simple.SimpleTouchHandler)
 	 */
 	/** {@inheritDoc} */
-	public HandlerRegistration addTapHandler(TapHandler handler) {
+	@Override
+  public HandlerRegistration addTapHandler(TapHandler handler) {
 		return touchDelegate.addTapHandler(handler);
 	}
 
@@ -259,7 +260,8 @@ public abstract class AnimatableDialogBase implements HasWidgets, HasTouchHandle
 	/**
 	 * hide the dialog if it is visible
 	 */
-	public void hide() {
+	@Override
+  public void hide() {
 		if (!isVisible)
 			return;
 		isVisible = false;
@@ -360,7 +362,8 @@ public abstract class AnimatableDialogBase implements HasWidgets, HasTouchHandle
 	 * show
 	 * </p>
 	 */
-	public void show() {
+	@Override
+  public void show() {
 		if (isVisible) {
 			return;
 		}

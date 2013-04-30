@@ -207,6 +207,7 @@ public class ScrollPanelIE9Impl extends ScrollPanelImpl {
    * refresh
    * </p>
    */
+  @Override
   public void refresh() {
     updateScrollBars();
     if (widgetToScroll == null) {
@@ -570,6 +571,7 @@ public class ScrollPanelIE9Impl extends ScrollPanelImpl {
 
   }
 
+  @Override
   public void setUsePos(boolean pos) {
 
   }
@@ -580,6 +582,7 @@ public class ScrollPanelIE9Impl extends ScrollPanelImpl {
    * @see com.googlecode.mgwt.ui.client.widget.impl.ScrollPanelImpl#scrollTo(int, int, int)
    */
   /** {@inheritDoc} */
+  @Override
   public void scrollTo(int destX, int destY, int newDuration) {
     if (position_x == destX && position_y == destY) {
       resetPosition();
@@ -638,6 +641,7 @@ public class ScrollPanelIE9Impl extends ScrollPanelImpl {
   /**
 	 * 
 	 */
+  @Override
   public int getMaxScrollY() {
     return getClientHeight(main.getElement()) - getWidgetToScrollHeight();
 
@@ -718,6 +722,7 @@ public class ScrollPanelIE9Impl extends ScrollPanelImpl {
    * 
    * @return a boolean.
    */
+  @Override
   public boolean isScrollingEnabledX() {
     return scrollingEnabledX;
   }
@@ -728,6 +733,7 @@ public class ScrollPanelIE9Impl extends ScrollPanelImpl {
    * @see com.googlecode.mgwt.ui.client.widget.impl.ScrollPanelImpl#setScrollingEnabledX(boolean)
    */
   /** {@inheritDoc} */
+  @Override
   public void setScrollingEnabledX(boolean scrollingEnabledX) {
     this.scrollingEnabledX = scrollingEnabledX;
   }
@@ -744,6 +750,7 @@ public class ScrollPanelIE9Impl extends ScrollPanelImpl {
    * 
    * @return a boolean.
    */
+  @Override
   public boolean isScrollingEnabledY() {
     return scrollingEnabledY;
   }
@@ -754,6 +761,7 @@ public class ScrollPanelIE9Impl extends ScrollPanelImpl {
    * @see com.googlecode.mgwt.ui.client.widget.impl.ScrollPanelImpl#setScrollingEnabledY(boolean)
    */
   /** {@inheritDoc} */
+  @Override
   public void setScrollingEnabledY(boolean scrollingEnabledY) {
     this.scrollingEnabledY = scrollingEnabledY;
   }

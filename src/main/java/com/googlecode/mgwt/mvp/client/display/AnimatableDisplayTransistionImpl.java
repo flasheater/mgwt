@@ -71,7 +71,8 @@ public class AnimatableDisplayTransistionImpl implements AnimatableDisplay {
 		css.ensureInjected();
 
 		main = new FlowPanel() {
-			protected void onDetach() {
+			@Override
+      protected void onDetach() {
 				super.onDetach();
 				AnimatableDisplayTransistionImpl.this.onDetach();
 			};

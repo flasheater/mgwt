@@ -133,17 +133,20 @@ public class TouchPanel extends FlowPanel implements HasTouchHandlers, HasTapHan
 		return addHandler(handler, TapEvent.getType());
 	}
 
-	public HandlerRegistration addSwipeStartHandler(SwipeStartHandler handler) {
+	@Override
+  public HandlerRegistration addSwipeStartHandler(SwipeStartHandler handler) {
 		gestureUtility.ensureSwipeRecognizer();
 		return addHandler(handler, SwipeStartEvent.getType());
 	}
 
-	public HandlerRegistration addSwipeMoveHandler(SwipeMoveHandler handler) {
+	@Override
+  public HandlerRegistration addSwipeMoveHandler(SwipeMoveHandler handler) {
 		gestureUtility.ensureSwipeRecognizer();
 		return addHandler(handler, SwipeMoveEvent.getType());
 	}
 
-	public HandlerRegistration addSwipeEndHandler(SwipeEndHandler handler) {
+	@Override
+  public HandlerRegistration addSwipeEndHandler(SwipeEndHandler handler) {
 		gestureUtility.ensureSwipeRecognizer();
 		return addHandler(handler, SwipeEndEvent.getType());
 	}

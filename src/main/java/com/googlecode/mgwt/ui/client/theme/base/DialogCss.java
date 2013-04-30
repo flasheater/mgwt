@@ -86,7 +86,8 @@ public interface DialogCss extends ButtonBaseCss {
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String active();
+	@Override
+  public String active();
 
 	/**
 	 * <p>animationContainer</p>

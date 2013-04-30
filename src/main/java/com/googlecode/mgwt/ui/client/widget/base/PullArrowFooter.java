@@ -34,7 +34,8 @@ public class PullArrowFooter extends PullArrowBase {
 		super(css);
 	}
 
-	protected int getRotation(int y) {
+	@Override
+  protected int getRotation(int y) {
 		int degree = (y + 30) * -10;
 		if (degree < -90)
 			degree = -90;

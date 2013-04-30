@@ -158,7 +158,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * @see com.googlecode.mgwt.ui.client.widget.base.HasPlaceHolder#setPlaceHolder(java.lang.String)
 	 */
 	/** {@inheritDoc} */
-	public void setPlaceHolder(String value) {
+	@Override
+  public void setPlaceHolder(String value) {
 		box.getElement().setAttribute("placeholder", value);
 	}
 
@@ -173,7 +174,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * 
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String getPlaceHolder() {
+	@Override
+  public String getPlaceHolder() {
 		return box.getElement().getAttribute("placeholder");
 	}
 
@@ -182,7 +184,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * @see com.google.gwt.event.dom.client.HasChangeHandlers#addChangeHandler(com.google.gwt.event.dom.client.ChangeHandler)
 	 */
 	/** {@inheritDoc} */
-	public com.google.gwt.event.shared.HandlerRegistration addChangeHandler(ChangeHandler handler) {
+	@Override
+  public com.google.gwt.event.shared.HandlerRegistration addChangeHandler(ChangeHandler handler) {
 		return box.addChangeHandler(handler);
 	}
 
@@ -191,7 +194,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * @see com.google.gwt.event.logical.shared.HasValueChangeHandlers#addValueChangeHandler(com.google.gwt.event.logical.shared.ValueChangeHandler)
 	 */
 	/** {@inheritDoc} */
-	public com.google.gwt.event.shared.HandlerRegistration addValueChangeHandler(ValueChangeHandler<T> handler) {
+	@Override
+  public com.google.gwt.event.shared.HandlerRegistration addValueChangeHandler(ValueChangeHandler<T> handler) {
 		return box.addValueChangeHandler(handler);
 	}
 
@@ -207,7 +211,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * @return a {@link com.google.gwt.editor.ui.client.adapters.ValueBoxEditor}
 	 *         object.
 	 */
-	public ValueBoxEditor<T> asEditor() {
+	@Override
+  public ValueBoxEditor<T> asEditor() {
 		return box.asEditor();
 	}
 
@@ -242,7 +247,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * 
 	 * @return a Direction object.
 	 */
-	public Direction getDirection() {
+	@Override
+  public Direction getDirection() {
 		return box.getDirection();
 	}
 
@@ -257,7 +263,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * 
 	 * @return a {@link com.google.gwt.i18n.shared.DirectionEstimator} object.
 	 */
-	public DirectionEstimator getDirectionEstimator() {
+	@Override
+  public DirectionEstimator getDirectionEstimator() {
 		return box.getDirectionEstimator();
 	}
 
@@ -272,7 +279,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * 
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String getName() {
+	@Override
+  public String getName() {
 		return box.getName();
 	}
 
@@ -309,7 +317,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * 
 	 * @return a {@link java.lang.String} object.
 	 */
-	public String getText() {
+	@Override
+  public String getText() {
 		return box.getText();
 	}
 
@@ -324,7 +333,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * 
 	 * @return a T object.
 	 */
-	public T getValue() {
+	@Override
+  public T getValue() {
 		return box.getValue();
 	}
 
@@ -405,7 +415,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * 
 	 * @param direction a Direction object.
 	 */
-	public void setDirection(Direction direction) {
+	@Override
+  public void setDirection(Direction direction) {
 		box.setDirection(direction);
 	}
 
@@ -414,7 +425,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * @see com.google.gwt.i18n.shared.HasDirectionEstimator#setDirectionEstimator(boolean)
 	 */
 	/** {@inheritDoc} */
-	public void setDirectionEstimator(boolean enabled) {
+	@Override
+  public void setDirectionEstimator(boolean enabled) {
 		box.setDirectionEstimator(enabled);
 	}
 
@@ -430,7 +442,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * @param directionEstimator a
 	 *            {@link com.google.gwt.i18n.shared.DirectionEstimator} object.
 	 */
-	public void setDirectionEstimator(DirectionEstimator directionEstimator) {
+	@Override
+  public void setDirectionEstimator(DirectionEstimator directionEstimator) {
 		box.setDirectionEstimator(directionEstimator);
 	}
 
@@ -439,7 +452,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * @see com.google.gwt.user.client.ui.HasName#setName(java.lang.String)
 	 */
 	/** {@inheritDoc} */
-	public void setName(String name) {
+	@Override
+  public void setName(String name) {
 		box.setName(name);
 	}
 
@@ -467,7 +481,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * @see com.google.gwt.user.client.ui.HasText#setText(java.lang.String)
 	 */
 	/** {@inheritDoc} */
-	public void setText(String text) {
+	@Override
+  public void setText(String text) {
 		box.setText(text);
 	}
 
@@ -482,7 +497,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * 
 	 * @param value a T object.
 	 */
-	public void setValue(T value) {
+	@Override
+  public void setValue(T value) {
 		box.setValue(value);
 	}
 
@@ -491,7 +507,8 @@ public class MValueBoxBase<T> extends Composite implements HasBlurHandlers, HasT
 	 * @see com.google.gwt.user.client.ui.HasValue#setValue(java.lang.Object, boolean)
 	 */
 	/** {@inheritDoc} */
-	public void setValue(T value, boolean fireEvents) {
+	@Override
+  public void setValue(T value, boolean fireEvents) {
 		box.setValue(value, fireEvents);
 	}
 

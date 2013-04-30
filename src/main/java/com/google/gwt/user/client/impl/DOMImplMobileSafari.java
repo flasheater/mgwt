@@ -52,7 +52,8 @@ public class DOMImplMobileSafari extends DOMImplWebkit {
 	}
 
 	/** {@inheritDoc} */
-	protected void sinkEventsImpl(Element elem, int bits) {
+	@Override
+  protected void sinkEventsImpl(Element elem, int bits) {
 		sinkEventsImpl0(elem, bits);
 	}
 

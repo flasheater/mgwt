@@ -135,7 +135,8 @@ public abstract class TouchWidget extends Widget implements HasTouchHandlers, Ha
 	 * @return a {@link com.google.gwt.event.shared.HandlerRegistration} object.
 	 */
 
-	public HandlerRegistration addTapHandler(TapHandler handler) {
+	@Override
+  public HandlerRegistration addTapHandler(TapHandler handler) {
 		gestureUtility.ensureTapRecognizer();
 		return addHandler(handler, TapEvent.getType());
 	}
